@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "main": "rollup.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "test": "vitest",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "npm run build && changeset publish"
   },
   "keywords": [],
   "author": "",
