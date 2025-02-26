@@ -1,0 +1,67 @@
+.yadsy-button {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius-md);
+  outline: none;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+/* Variant styles */
+.yadsy-button--primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-white);
+  border: var(--border-width-none);
+}
+
+.yadsy-button--primary:hover:not(:disabled) {
+  background-color: var(--color-primary-600);
+}
+
+.yadsy-button--secondary {
+  background-color: var(--color-secondary-200);
+  color: var(--color-secondary-800);
+  border: var(--border-width-none);
+}
+
+.yadsy-button--secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary-300);
+}
+
+.yadsy-button--outline {
+  background-color: transparent;
+  color: var(--color-primary-500);
+  border: var(--border-width-thin) solid var(--color-primary-500);
+}
+
+.yadsy-button--outline:hover:not(:disabled) {
+  background-color: var(--color-primary-50);
+}
+
+/* Size styles */
+.yadsy-button--small {
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-sm);
+}
+
+.yadsy-button--medium {
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-base);
+}
+
+.yadsy-button--large {
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: var(--font-size-lg);
+}
+
+/* State styles */
+.yadsy-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.yadsy-button:not(:disabled) {
+  cursor: pointer;
+}

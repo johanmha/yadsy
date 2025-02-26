@@ -1,4 +1,6 @@
+// src/components/atoms/Button/Button.tsx
 import React from 'react';
+import './Button.css';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline';
 export type ButtonSize = 'small' | 'medium' | 'large';
@@ -26,29 +28,17 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   onClick,
   disabled = false,
+  className = '',
   ...props
 }) => {
-  const baseClasses =
-    'font-medium rounded focus:outline-none transition-colors';
-
-  const variantClasses = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
-    outline:
-      'bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-50',
-  };
-
-  const sizeClasses = {
-    small: 'py-1 px-3 text-sm',
-    medium: 'py-2 px-4 text-base',
-    large: 'py-3 px-6 text-lg',
-  };
-
-  const disabledClasses = disabled
-    ? 'opacity-50 cursor-not-allowed'
-    : 'cursor-pointer';
-
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabledClasses}`;
+  const classes = [
+    'yadsy-button',
+    `yadsy-button--${variant}`,
+    `yadsy-button--${size}`,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <button
