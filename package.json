@@ -1,20 +1,31 @@
 {
   "name": "yadsy",
   "version": "1.0.0",
-  "main": "rollup.config.js",
+  "description": "Yet Another Design System",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c",
     "test": "vitest",
-    "lint": "eslint .",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write .",
     "changeset": "changeset",
     "version": "changeset version",
     "release": "npm run build && changeset publish"
   },
-  "keywords": [],
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "ui"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "Yet Another Design System",
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
     "@eslint/js": "^9.21.0",
@@ -35,5 +46,9 @@
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.25.0",
     "vitest": "^3.0.7"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
   }
 }
