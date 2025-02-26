@@ -28,7 +28,7 @@
     "components",
     "ui"
   ],
-  "author": "",
+  "author": "johanmha",
   "license": "ISC",
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
