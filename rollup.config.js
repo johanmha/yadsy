@@ -3,7 +3,11 @@ import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import typescript from '@rollup/plugin-typescript';
-import pkg from './package.json';
+import { readFileSync } from 'node:fs';
+
+const pkg = JSON.parse(
+  readFileSync(new URL('./package.json', import.meta.url), 'utf8')
+);
 
 export default {
   input: 'src/index.ts',
@@ -25,9 +29,7 @@ export default {
     commonjs(),
     typescript({
       tsconfig: './tsconfig.json',
-      declaration: true,
-      declarationDir: 'dist',
-      include: ['src/**/*.ts', 'src/**/*.tsx'],
+      outputToFilesystem: true,
     }),
     terser(),
   ],
