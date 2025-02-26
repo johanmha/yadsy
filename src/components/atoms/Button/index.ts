@@ -3,5 +3,5 @@ export {
   type ButtonProps,
   type ButtonVariant,
   type ButtonSize,
-} from './Button.jsx';
-export { default } from './Button.jsx';
+} from './Button.js';
+export { default } from './Button.js';
