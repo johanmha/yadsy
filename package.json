@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "test": "vitest",
+    "test": "vitest --run",
+    "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write .",
