@@ -10,9 +10,10 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "rollup -c",
+    "clean": "rimraf dist && rimraf src/tokens/tokens.css",
+    "build": "npm run generate-css && rollup -c",
     "build:clean": "npm run clean && npm run build",
+    "generate-css": "node --loader ts-node/esm src/tokens/generateCss.ts",
     "test": "vitest --run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -67,6 +68,7 @@
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook": "^8.6.0",
+    "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.25.0",
