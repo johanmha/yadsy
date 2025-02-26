@@ -1,0 +1,174 @@
+import { Meta } from '@storybook/blocks';
+
+export const RightArrow = () => (
+  <svg
+    viewBox="0 0 14 14"
+    width="8px"
+    height="14px"
+    style={{
+      marginLeft: '4px',
+      display: 'inline-block',
+      shapeRendering: 'inherit',
+      verticalAlign: 'middle',
+      fill: 'currentColor',
+      'path fill': 'currentColor',
+    }}
+  >
+    <path d="m11.1 7.35-5.5 5.5a.5.5 0 0 1-.7-.7L10.04 7 4.9 1.85a.5.5 0 1 1 .7-.7l5.5 5.5c.2.2.2.5 0 .7Z" />
+  </svg>
+);
+
+<Meta title="YADSY/Configuration" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Using YADSY in your project
+
+    YADSY is designed to be easy to integrate into your React projects. Below are guides for common integration scenarios.
+
+  </div>
+  <div className="sb-section">
+    <div className="sb-section-item">
+      <h4 className="sb-section-item-heading">Basic Integration</h4>
+      <p className="sb-section-item-paragraph">Include YADSY in your React project by installing the package and importing the components you need.</p>
+      
+      ```bash
+      npm install yadsy
+      ```
+      
+      ```jsx
+      import { Button } from 'yadsy';
+      import 'yadsy/dist/tokens/tokens.css';
+      
+      function App() {
+        return <Button>Click me</Button>;
+      }
+      ```
+    </div>
+    <div className="sb-section-item">
+      <h4 className="sb-section-item-heading">Using with CSS-in-JS</h4>
+      <p className="sb-section-item-paragraph">If you're using a CSS-in-JS solution, you can import the token values directly.</p>
+      
+      ```jsx
+      import { colors, spacing } from 'yadsy';
+      import styled from 'styled-components';
+      
+      const StyledContainer = styled.div`
+        background-color: ${colors.primary[100]};
+        padding: ${spacing[4]};
+      `;
+      ```
+    </div>
+    <div className="sb-section-item">
+      <h4 className="sb-section-item-heading">Theming</h4>
+      <p className="sb-section-item-paragraph">YADSY provides a theming solution that allows you to customize the design tokens.</p>
+      
+      ```jsx
+      // Coming soon
+      ```
+    </div>
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Customizing YADSY Components
+
+    While YADSY components work great out of the box, you might want to customize them for your specific needs.
+
+  </div>
+
+  <div className="sb-section">
+    <div className="sb-section-item">
+      <h4 className="sb-section-item-heading">Component Props</h4>
+      <p className="sb-section-item-paragraph">All YADSY components accept standard HTML attributes along with component-specific props.</p>
+      
+      ```jsx
+      <Button 
+        variant="primary" 
+        size="large"
+        disabled={false}
+        onClick={() => console.log('clicked')}
+        className="custom-class"
+      >
+        Custom Button
+      </Button>
+      ```
+    </div>
+    <div className="sb-section-item">
+      <h4 className="sb-section-item-heading">CSS Customization</h4>
+      <p className="sb-section-item-paragraph">You can override the default styles by targeting the YADSY CSS classes.</p>
+      
+      ```css
+      .yadsy-button--primary {
+        background-color: #ff0000; /* Custom red */
+      }
+      ```
+    </div>
+    <div className="sb-section-item">
+      <h4 className="sb-section-item-heading">Advanced Customization</h4>
+      <p className="sb-section-item-paragraph">For more advanced customization needs, you can extend the components or create composite components.</p>
+      
+      ```jsx
+      const CustomButton = ({ children, ...props }) => (
+        <Button {...props} className="custom-button">
+          ★ {children} ★
+        </Button>
+      );
+      ```
+    </div>
+  </div>
+</div>
+
+<style>
+  {`
+  .sb-container {
+    margin-bottom: 48px;
+  }
+
+  .sb-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .sb-section-title {
+    margin-bottom: 32px;
+  }
+
+  .sb-section a:not(h1 a, h2 a, h3 a) {
+    font-size: 14px;
+  }
+
+  .sb-section-item, .sb-grid-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sb-section-item-heading {
+    padding-top: 20px !important;
+    padding-bottom: 5px !important;
+    margin: 0 !important;
+  }
+  .sb-section-item-paragraph {
+    margin: 0;
+    padding-bottom: 10px;
+  }
+
+  .sb-chevron {
+    margin-left: 5px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .sb-section {
+      flex-direction: column;
+    }
+  }
+  `}
+</style>

@@ -1,0 +1,73 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# Welcome to YADSY - Yet Another Design System
+
+YADSY is a modular, accessible design system built with React. It provides a collection of reusable components and design tokens to help you build consistent user interfaces.
+
+## Getting Started
+
+Install YADSY from npm:
+
+```bash
+npm install yadsy
+```
+
+Import and use components:
+
+```jsx
+import { Button } from 'yadsy';
+import 'yadsy/dist/tokens/tokens.css'; // Import the design tokens CSS
+
+function App() {
+  return (
+    <Button variant="primary" size="medium">
+      Click Me
+    </Button>
+  );
+}
+```
+
+## Design Tokens
+
+YADSY includes a comprehensive set of design tokens for:
+
+- **Colors**: Primary, secondary, and semantic color palettes
+- **Typography**: Font families, sizes, weights, and line heights
+- **Spacing**: Consistent spacing values
+- **Borders**: Border radii and widths
+- **Shadows**: Elevation levels
+
+These tokens are available both as JavaScript objects and CSS variables.
+
+```jsx
+// Import tokens as JavaScript objects
+import { colors, spacing, typography } from 'yadsy';
+
+// Or use CSS variables
+// --color-primary-500: #0066ff;
+// --spacing-4: 1rem;
+// --font-size-base: 1rem;
+```
+
+## Component Categories
+
+Our components are organized into the following categories:
+
+- **Atoms**: The basic building blocks like buttons, inputs, and icons
+- **Molecules**: Combinations of atoms to form more complex components
+- **Organisms**: More complex UI patterns made of molecules and atoms
+
+## Principles
+
+YADSY is built on the following principles:
+
+1. **Accessibility**: Components follow WCAG standards
+2. **Consistency**: A unified design language across components
+3. **Flexibility**: Customizable to fit different brand requirements
+4. **Performance**: Minimal bundle size and optimal rendering
+
+## Contributing
+
+We welcome contributions to YADSY! Check out our GitHub repository for more information.
