@@ -6,17 +6,18 @@ import { colors, typography, spacing, border, shadows } from './index.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-function generateCssVariables(
-  object: Record<string, any>,
-  prefix: string
-): string[] {
+type DesignTokens = {
+  [key: string]: string | number | DesignTokens;
+};
+
+function generateCssVariables(object: DesignTokens, prefix: string): string[] {
   const variables: string[] = [];
 
   function formatKey(key: string): string {
     return key.replace(/_/g, '-');
   }
 
-  function processObject(obj: Record<string, any>, currentPrefix: string) {
+  function processObject(obj: DesignTokens, currentPrefix: string) {
     for (const [key, value] of Object.entries(obj)) {
       if (typeof value === 'object' && value !== null) {
         processObject(value, `${currentPrefix}-${formatKey(key)}`);
