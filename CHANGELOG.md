@@ -1,5 +1,11 @@
 # yadsy
 
+## 0.1.1
+
+### Patch Changes
+
+- c980041: Update readme with basic how to use design tokens
+
 ## 0.1.0
 
 ### Minor Changes
