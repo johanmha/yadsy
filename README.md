@@ -12,7 +12,9 @@ A modular, accessible design system built with React. YADSY provides a collectio
 npm install yadsy
 ```
 
-## Usage
+## Components
+
+### Usage
 
 ```jsx
 import { Button } from 'yadsy';
@@ -41,6 +43,81 @@ These are mainly fillers or placeholders as of today, though they are used in th
 
 TODO: change tokens according to best practice.
 TODO: create a more inspiring color pallet.
+
+### Usage
+
+You can override the CSS variables in your CSS file:
+
+```css
+.custom-button {
+  --color-primary-500: #ff5500;
+  --border-radius-md: 0.5rem;
+}
+```
+
+Or use the tokens directly as javascript:
+
+```jsx
+import { Button, colors, spacing, border } from 'yadsy';
+import './App.css';
+
+function App() {
+  const customStyle = {
+    backgroundColor: colors.secondary[700],
+    padding: `${spacing[2]} ${spacing[4]}`,
+    borderRadius: border.radius.lg,
+  };
+
+  return (
+    <div style={{ padding: spacing[4] }}>
+      <Button
+        onClick={() => console.log('Jeg er yadsy')}
+        size="large"
+        style={customStyle}
+      >
+        I am yadsy
+      </Button>
+    </div>
+  );
+}
+```
+
+Or create your own custom button
+
+```jsx
+import { Button } from 'yadsy';
+import './App.css';
+
+function CustomButton(props) {
+  return (
+    <Button
+      {...props}
+      className={`custom-themed-button ${props.className || ''}`}
+    />
+  );
+}
+
+function App() {
+  return (
+    <CustomButton onClick={() => console.log('I am yadsy')} size="large">
+      I am yadsy
+    </CustomButton>
+  );
+}
+```
+
+with corresponding css:
+
+```css
+.custom-themed-button.yadsy-button--primary {
+  background-color: var(--color-secondary-700);
+  color: var(--color-white);
+}
+
+.custom-themed-button.yadsy-button--primary:hover:not(:disabled) {
+  background-color: var(--color-secondary-800);
+}
+```
 
 ## Development
 
